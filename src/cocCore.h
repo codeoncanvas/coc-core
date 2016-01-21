@@ -6,7 +6,6 @@
 
 #if defined( COC_OF )
 
-#include "ofMain.h"
 #include "cocGlm.h"
 
 #elif defined( COC_CI )
