@@ -13,3 +13,5 @@
 #include "cinder/app/App.h"
 
 #endif
+
+#include "cocRect.h"
