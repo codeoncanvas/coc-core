@@ -20,11 +20,19 @@
 
 #if defined( COC_OF )
 
-    #include "cocGlm.h"
+#include "cocGlm.h"
+
+typedef OF_ASPECT_RATIO_IGNORE COC_ASPECT_RATIO_IGNORE;
+typedef OF_ASPECT_RATIO_KEEP COC_ASPECT_RATIO_KEEP;
+typedef OF_ASPECT_RATIO_KEEP_BY_EXPANDING COC_ASPECT_RATIO_KEEP_BY_EXPANDING
 
 #elif defined( COC_CI )
 
-	//
+enum cocAspectRatioMode {
+	COC_ASPECT_RATIO_IGNORE            = 0,
+	COC_ASPECT_RATIO_KEEP              = 1,
+	COC_ASPECT_RATIO_KEEP_BY_EXPANDING = 2,
+};
 
 #endif
 
