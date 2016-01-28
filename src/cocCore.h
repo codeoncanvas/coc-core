@@ -1,14 +1,22 @@
 //
+//	    ┌─┐╔═╗┌┬┐┌─┐
+//      │  ║ ║ ││├┤
+//      └─┘╚═╝─┴┘└─┘
+//	 ┌─┐┌─┐╔╗╔┬  ┬┌─┐┌─┐
+//	 │  ├─┤║║║└┐┌┘├─┤└─┐
+//	 └─┘┴ ┴╝╚╝ └┘ ┴ ┴└─┘
+//	http://CodeOnCanvas.cc
+//
 //  cocCore.h
 //  Created by Lukasz Karluk on 22/01/2016.
 //  http://codeoncanvas.cc
 //
 
-//best defined as pre-processor macro...
-// #define COC_OF
-// #define COC_CI
-
 #pragma once
+
+#if !defined(COC_OF) && !defined(COC_CI)
+#error Must define COC_OF or COC_CI!
+#endif
 
 #if defined( COC_OF )
 
@@ -16,7 +24,7 @@
 
 #elif defined( COC_CI )
 
-    #include "cinder/app/App.h"
+	//
 
 #endif
 
