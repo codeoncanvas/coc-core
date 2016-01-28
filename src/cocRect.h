@@ -13,8 +13,8 @@
 
 #elif defined( COC_CI )
 
-#include "Rect.h"
-#define RectBase Rectf
+#include "cinder/Rect.h"
+#define RectBase ci::Rectf
 
 #endif
 
