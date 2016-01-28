@@ -28,6 +28,7 @@
 
 #endif
 
+#include "cocMath.h"
 #include "cocRect.h"
 
 namespace coc {
