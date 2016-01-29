@@ -25,13 +25,31 @@ class Rect : public RectBase {
 public:
 
 #ifdef COC_OF
+
+		//dangerous! safe as getters but not setters:
+//		float &x1;
+//		float &y1;
+//		Rect() : x1(x), y1(y) {}
+
 		float getX1() { return getX(); }
 		float getY1() { return getY(); }
+		float getX2() { return x + width; }
+		float getY2() { return y + height; }
+
+		glm::vec2 getUpperLeft() { return getTopLeft(); }
+		glm::vec2 getLowerRight() { return getBottomRight(); }
+
 #endif
 
 #ifdef COC_CI
-		float 	getX() { return getX1(); }
-		float 	getY() { return getY1(); }
+
+		//dangerous! safe as getters but not setters:
+//		float &x;
+//		float &y;
+//		Rect() : x(x1), y(y1) {}
+
+		float 	getX() { return x1; }
+		float 	getY() { return y1; }
 		bool 	isEmpty() {
 			if (getWidth()==0 || getHeight() ==0) return true;
 			return false;

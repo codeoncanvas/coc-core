@@ -21,10 +21,9 @@
 #if defined( COC_OF )
 
 #include "cocGlm.h"
+#include "ofConstants.h"
 
-typedef OF_ASPECT_RATIO_IGNORE COC_ASPECT_RATIO_IGNORE;
-typedef OF_ASPECT_RATIO_KEEP COC_ASPECT_RATIO_KEEP;
-typedef OF_ASPECT_RATIO_KEEP_BY_EXPANDING COC_ASPECT_RATIO_KEEP_BY_EXPANDING
+typedef ofAspectRatioMode cocAspectRatioMode;
 
 #elif defined( COC_CI )
 
