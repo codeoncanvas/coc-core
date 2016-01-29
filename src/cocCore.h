@@ -21,20 +21,14 @@
 #if defined( COC_OF )
 
 #include "cocGlm.h"
-#include "ofConstants.h"
-
-typedef ofAspectRatioMode cocAspectRatioMode;
 
 #elif defined( COC_CI )
 
-enum cocAspectRatioMode {
-	COC_ASPECT_RATIO_IGNORE            = 0,
-	COC_ASPECT_RATIO_KEEP              = 1,
-	COC_ASPECT_RATIO_KEEP_BY_EXPANDING = 2,
-};
+//
 
 #endif
 
+#include "cocConstants.h"
 #include "cocMath.h"
 #include "cocRect.h"
 

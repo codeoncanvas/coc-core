@@ -36,9 +36,6 @@ public:
 		float getX2() { return x + width; }
 		float getY2() { return y + height; }
 
-		glm::vec2 getUpperLeft() { return getTopLeft(); }
-		glm::vec2 getLowerRight() { return getBottomRight(); }
-
 #endif
 
 #ifdef COC_CI
