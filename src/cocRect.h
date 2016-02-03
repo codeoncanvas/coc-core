@@ -8,6 +8,8 @@
 
 #if defined( COC_OF )
 
+#include "cocGlm.h"
+
 #include "ofRectangle.h"
 #define RectBase ofRectangle
 
@@ -24,48 +26,39 @@ class Rect : public RectBase {
 
 public:
 
-#ifdef COC_OF
+    void setX(float value);
+    void setY(float value);
+    void setW(float value);
+    void setH(float value);
 
-		//dangerous! safe as getters but not setters:
-//		float &x1;
-//		float &y1;
-//		Rect() : x1(x), y1(y) {}
+    float getX() const;
+    float getY() const;
+    float getW() const;
+    float getH() const;
+    
+    void setX1(float value);
+    void setY1(float value);
+    void setX2(float value);
+    void setY2(float value);
+    
+    float getX1() const;
+    float getY1() const;
+    float getX2() const;
+    float getY2() const;
+    
+    bool isEmpty();
+    bool isInside(float x, float y);
+    
+    void lerp(const Rect & rect, float p);
+    void erode(float value);                    // TODO:
+    void dilate(float value);                   // TODO:
+    void transform(const glm::mat4x4 mat);      // TODO:
 
-		float getX1() { return getX(); }
-		float getY1() { return getY(); }
-		float getX2() { return x + width; }
-		float getY2() { return y + height; }
-
-#endif
-
-#ifdef COC_CI
-
-		//dangerous! safe as getters but not setters:
-//		float &x;
-//		float &y;
-//		Rect() : x(x1), y(y1) {}
-
-		float 	getX() { return x1; }
-		float 	getY() { return y1; }
-		bool 	isEmpty() {
-			if (getWidth()==0 || getHeight() ==0) return true;
-			return false;
-		}
-
-		glm::vec2 getTopLeft() { return getUpperLeft(); }
-		glm::vec2 getBottomRight() { return getLowerRight(); }
-
-		bool inside( float x, float y) {
-			return contains( glm::vec2(x,y) );
-		}
-
-		void setX( float f ) { x1 = f; }
-		void setY( float f ) { y1 = f; }
-		void setWidth( float f ) { x2 = x1 + f; }
-		void setHeight( float f ) { y2 = y1 + f; }
-#endif
-
+    bool operator == (const Rect & rect) const;
+    bool operator != (const Rect & rect) const;
 
 };
+
+Rect RectLerp(const Rect & rectFrom, const Rect & rectTo, float p);
 
 }

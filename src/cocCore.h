@@ -5,11 +5,9 @@
 //	 ┌─┐┌─┐╔╗╔┬  ┬┌─┐┌─┐
 //	 │  ├─┤║║║└┐┌┘├─┤└─┐
 //	 └─┘┴ ┴╝╚╝ └┘ ┴ ┴└─┘
-//	http://CodeOnCanvas.cc
+//	http://codeoncanvas.cc
 //
-//  cocCore.h
 //  Created by Lukasz Karluk on 22/01/2016.
-//  http://codeoncanvas.cc
 //
 
 #pragma once
