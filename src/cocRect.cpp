@@ -23,7 +23,9 @@ void Rect::setX(float value) {
 #ifdef COC_CI
 
 void Rect::setX(float value) {
+    float w = getW();
     x1 = value;
+    x2 = x1 + w;
 }
     
 #endif
@@ -40,7 +42,9 @@ void Rect::setY(float value) {
 #ifdef COC_CI
     
 void Rect::setY(float value) {
-    y2 = value;
+    float h = getH();
+    y1 = value;
+    y2 = y1 + h;
 }
 
 #endif    
@@ -312,6 +316,29 @@ bool Rect::operator == (const Rect & rect) const {
 bool Rect::operator != (const Rect & rect) const {
 	return ((*this == rect) == false);
 }
+    //----------------------------------------------------------
+    
+#ifdef COC_OF
+
+void Rect::setRect( RectBase rect ) {
+    setX(rect.x);
+    setY(rect.y);
+    setW(rect.width);
+    setH(rect.height);
+}
+
+#endif
+
+#ifdef COC_CI
+
+void Rect::setRect( RectBase rect ) {
+    setX1(rect.x1);
+    setY1(rect.y1);
+    setX2(rect.x2);
+    setY2(rect.y2);
+}
+    
+#endif
 
 //----------------------------------------------------------
 Rect RectLerp(const Rect & rectFrom, const Rect & rectTo, float p) {
@@ -320,4 +347,6 @@ Rect RectLerp(const Rect & rectFrom, const Rect & rectTo, float p) {
     return rect;
 }
 
-}
+
+
+}//namespace coc

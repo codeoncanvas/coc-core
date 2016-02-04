@@ -25,7 +25,7 @@ double getTimeElapsed() {
 #if defined( COC_OF )
     return ofGetElapsedTimef();
 #elif defined( COC_CI )
-    return 0; // TODO: add cinder equivalent.
+    return ci::app::getElapsedSeconds();
 #endif
 
 }

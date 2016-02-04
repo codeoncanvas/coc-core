@@ -25,6 +25,9 @@ namespace coc {
 class Rect : public RectBase {
 
 public:
+    
+    Rect(){};
+    Rect( RectBase rect) { setRect(rect); }
 
     void setX(float value);
     void setY(float value);
@@ -56,6 +59,8 @@ public:
 
     bool operator == (const Rect & rect) const;
     bool operator != (const Rect & rect) const;
+    
+    void setRect( RectBase );
 
 };
 
