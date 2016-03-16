@@ -94,10 +94,23 @@ float map(float val, float inMin, float inMax, float outMin, float outMax, bool 
 #ifdef COC_CI
 
 float map(float val, float inMin, float inMax, float outMin, float outMax, bool clamp) {
-    if ( clamp ) {
-        return ci::math<float>::clamp( ci::lmap<float>( val, inMin, inMax, outMin, outMax ), outMin, outMax );
+    float outVal = ci::lmap<float>( val, inMin, inMax, outMin, outMax );
+    if( clamp ){
+        if(outMax < outMin) {
+            if(outVal < outMax) {
+                outVal = outMax;
+            } else if(outVal > outMin) {
+                outVal = outMin;
+            }
+        }else{
+            if(outVal > outMax){
+                outVal = outMax;
+            } else if(outVal < outMin) {
+                outVal = outMin;
+            }
+        }
     }
-	return ci::lmap<float>( val, inMin, inMax, outMin, outMax );
+	return outVal;
 }
 
 #endif
