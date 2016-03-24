@@ -13,7 +13,7 @@
 
 #elif defined( COC_CI )
 
-    //
+#include "cinder/app/App.h"
 
 #endif
 
