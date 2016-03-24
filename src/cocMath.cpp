@@ -132,4 +132,25 @@ float lerp(float a, float b, float amount) {
 
 #endif
 
+//--------------------------------------------------------------
+glm::mat4 lookAt(glm::vec3 position, glm::vec3 target, glm::vec3 upTemp) {
+
+    glm::vec3 look = target - position;
+    look = normalize(look);
+
+    glm::vec3 right = cross(upTemp, look); // cross mult with temp up vector.
+    right = normalize(right);
+
+    glm::vec3 up = cross(look, right);
+    up = normalize(up);
+    
+    glm::mat4 lookAt;
+    lookAt[0] = glm::vec4(right, 0.0);
+    lookAt[1] = glm::vec4(up, 0.0);
+    lookAt[2] = glm::vec4(look, 0.0);
+    lookAt[3] = glm::vec4(0.0, 0.0, 0.0, 1.0);
+    
+    return lookAt;
+}
+
 }
