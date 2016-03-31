@@ -15,6 +15,7 @@
 
 #if defined( COC_OF )
 
+#include "cocGlm.h"
 #include "ofMath.h"
 
 #elif defined( COC_CI )
