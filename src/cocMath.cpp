@@ -153,4 +153,16 @@ glm::mat4 lookAt(glm::vec3 position, glm::vec3 target, glm::vec3 upTemp) {
     return lookAt;
 }
 
+float angleClockwise(glm::vec2 direction) {
+
+    float angle = atan2(direction.y, direction.x);
+    angle += M_PI * 0.5;
+    if(angle < 0.0) {
+        angle += M_PI * 2;
+    } else if(angle > M_PI * 2) {
+        angle -= M_PI * 2;
+    }
+    return angle;
+}
+
 }
