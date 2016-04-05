@@ -7,18 +7,15 @@
 //	 └─┘┴ ┴╝╚╝ └┘ ┴ ┴└─┘
 //	http://codeoncanvas.cc
 //
-//  Created by Lukasz Karluk on 22/01/2016.
+// Created by Rene Christen on 28/01/2016.
+// Copyright (c) 2016, Code on Canvas Pty Ltd
 //
 
 #pragma once
 
-#if !defined(COC_OF) && !defined(COC_CI)
-#error Must define COC_OF or COC_CI!
-#endif
-
 #if defined( COC_OF )
 
-#include "cocGlm.h"
+#include "ofMath.h"
 
 #elif defined( COC_CI )
 
@@ -26,14 +23,9 @@
 
 #endif
 
-#include "cocConstants.h"
-#include "cocMath.h"
-#include "cocRandom.h"
-#include "cocRect.h"
-
 namespace coc {
 
-double getTimeElapsed();
-double getTimeElapsedSinceLastFrame();
+float rand(float value);
+float rand(float value1, float value2);
 
 }
