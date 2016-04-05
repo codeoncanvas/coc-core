@@ -8,6 +8,16 @@
 
 #include "cocRandom.h"
 
+#if defined( COC_OF )
+
+#include "ofMath.h"
+
+#elif defined( COC_CI )
+
+#include "cinder/Rand.h"
+
+#endif
+
 namespace coc {
 
 //--------------------------------------------------------------
@@ -22,7 +32,7 @@ float rand(float value) {
 #ifdef COC_CI
 
 float rand(float value) {
-    //
+    return ci::Rand::randFloat(value);
 }
 
 #endif
@@ -39,7 +49,7 @@ float rand(float value1, float value2) {
 #ifdef COC_CI
 
 float rand(float value1, float value2) {
-    //
+    return ci::Rand::randFloat(value1, value2);
 }
 
 #endif
