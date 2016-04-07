@@ -53,8 +53,8 @@ public:
     bool isInside(float x, float y);
     
     void lerp(const Rect & rect, float p);
-    void erode(float value);                    // TODO:
-    void dilate(float value);                   // TODO:
+    void erode(float amount);
+    void dilate(float amount);
     void transform(const glm::mat4x4 mat);      // TODO:
 
     bool operator == (const Rect & rect) const;

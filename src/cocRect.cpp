@@ -303,6 +303,22 @@ void Rect::lerp(const Rect & rect, float p) {
     setY2(_y2);
 }
 
+void Rect::erode(float amount) {
+    
+    setX(getX() + amount);
+    setY(getY() + amount);
+    setW(getW() - amount * 2);
+    setH(getH() - amount * 2);
+}
+
+void Rect::dilate(float amount) {
+    
+    setX(getX() - amount);
+    setY(getY() - amount);
+    setW(getW() + amount * 2);
+    setH(getH() + amount * 2);
+}
+
 //----------------------------------------------------------
 bool Rect::operator == (const Rect & rect) const {
     bool bSame = true;
