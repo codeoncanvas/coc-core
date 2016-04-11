@@ -303,15 +303,7 @@ void Rect::lerp(const Rect & rect, float p) {
     setY2(_y2);
 }
 
-void Rect::erode(float amount) {
-    
-    setX(getX() + amount);
-    setY(getY() + amount);
-    setW(getW() - amount * 2);
-    setH(getH() - amount * 2);
-}
-
-void Rect::dilate(float amount) {
+void Rect::grow(float amount) {
     
     setX(getX() - amount);
     setY(getY() - amount);
@@ -363,6 +355,10 @@ Rect RectLerp(const Rect & rectFrom, const Rect & rectTo, float p) {
     return rect;
 }
 
-
+Rect RectGrow(const Rect & rectToGrow, float amount) {
+    Rect rect = rectToGrow;
+    rect.grow(amount);
+    return rect;
+}
 
 }//namespace coc

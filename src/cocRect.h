@@ -53,8 +53,7 @@ public:
     bool isInside(float x, float y);
     
     void lerp(const Rect & rect, float p);
-    void erode(float amount);
-    void dilate(float amount);
+    void grow(float amount);
     void transform(const glm::mat4x4 mat);      // TODO:
 
     bool operator == (const Rect & rect) const;
@@ -65,5 +64,6 @@ public:
 };
 
 Rect RectLerp(const Rect & rectFrom, const Rect & rectTo, float p);
+Rect RectGrow(const Rect & rectToGrow, float amount);
 
 }
