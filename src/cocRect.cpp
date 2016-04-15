@@ -12,6 +12,18 @@
 namespace coc {
 
 //--------------------------------------------------------------
+Rect::Rect() {
+    setX(0);
+    setY(0);
+    setW(0);
+    setH(0);
+}
+
+Rect::Rect(RectBase rect) {
+    setRect(rect);
+}
+
+//--------------------------------------------------------------
 #ifdef COC_OF
 
 void Rect::setX(float value) {

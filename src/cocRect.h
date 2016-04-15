@@ -26,8 +26,8 @@ class Rect : public RectBase {
 
 public:
     
-    Rect(){};
-    Rect( RectBase rect) { setRect(rect); }
+    Rect();
+    Rect(RectBase rect);
 
     void setX(float value);
     void setY(float value);
