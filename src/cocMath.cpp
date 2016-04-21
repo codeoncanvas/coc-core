@@ -153,6 +153,14 @@ glm::mat4 lookAt(glm::vec3 position, glm::vec3 target, glm::vec3 upTemp) {
     return lookAt;
 }
 
+glm::vec2 perpendicular(glm::vec2 vec) {
+	float length = glm::length(vec);
+	if(length > 0) {
+		return glm::vec2(-vec.y / length, vec.x / length);
+    }
+    return glm::vec2(0);
+}
+
 float angleClockwise(glm::vec2 direction) {
 
     float angle = atan2(direction.y, direction.x);
