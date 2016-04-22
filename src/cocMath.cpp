@@ -161,6 +161,12 @@ glm::vec2 perpendicular(glm::vec2 vec) {
     return glm::vec2(0);
 }
 
+glm::vec2 direction(float angle, float angleOffset) {
+    glm::vec4 point(0, -1, 0, 0);
+    point = glm::rotate(angle + angleOffset, glm::vec3(0, 0, 1)) * point;
+    return glm::vec2(point.x, point.y);
+}
+
 float angleClockwise(glm::vec2 direction) {
 
     float angle = atan2(direction.y, direction.x);
