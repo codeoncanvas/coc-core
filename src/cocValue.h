@@ -41,13 +41,11 @@ public:
 
     //--------------------------------------------------------------
     void operator = (const T & value) {
-        valueDirty = value;
-        bDirty = true;
+        setValue(value);
     }
 
     void operator = (const Value & value) {
-        valueDirty = value.getValue();
-        bDirty = true;
+        setValue(value.getValue());
     }
 
     //--------------------------------------------------------------
@@ -60,18 +58,23 @@ public:
     }
 
     //--------------------------------------------------------------
-    operator T() const {
-        return getValue();
-    }
-
-    //--------------------------------------------------------------
     void update() {
         bValueChanged = (valueClean != valueDirty);
         valueClean = valueDirty;
         bDirty = false;
     }
 
-    T & getValue() {
+    //--------------------------------------------------------------
+    void setValue(T value) {
+        valueDirty = value;
+        bDirty = true;
+    }
+    
+    operator T() const {
+        return getValue();
+    }
+
+    const T & getValue() const {
         if(bDirty == true) {
             return valueDirty;
         }
