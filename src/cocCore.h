@@ -30,6 +30,7 @@
 #include "cocMath.h"
 #include "cocRandom.h"
 #include "cocRect.h"
+#include "cocValue.h"
 
 namespace coc {
 
