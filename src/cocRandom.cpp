@@ -52,6 +52,11 @@ float rand(float value1, float value2) {
     return ci::Rand::randFloat(value1, value2);
 }
 
+//--------------------------------------------------------------
+bool randBool(float scale) {
+    return coc::rand(1.0) < scale;
+}
+
 #endif
 
 }

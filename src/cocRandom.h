@@ -17,5 +17,6 @@ namespace coc {
 
 float rand(float value);
 float rand(float value1, float value2);
+bool randBool(float scale=0.5);
 
 }
