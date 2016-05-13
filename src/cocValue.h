@@ -20,9 +20,9 @@ class Value {
 
 public:
     
-    Value() {
-        valueClean = 0;
-        valueDirty = 0;
+    Value(const T & value=0) {
+        valueClean = value;
+        valueDirty = value;
         bValueChanged = false;
         bDirty = false;
     }
