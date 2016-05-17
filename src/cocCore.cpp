@@ -17,6 +17,10 @@
 
 #endif
 
+#include <sstream>
+#include <string>
+#include <iostream>
+
 namespace coc {
 
 //--------------------------------------------------------------
@@ -56,7 +60,7 @@ std::string getTimestampString(const std::string & timestampFormat) {
     std::chrono::duration<double> s = now - std::chrono::system_clock::from_time_t(t);
     int ms = s.count() * 1000;
 	auto tm = *std::localtime(&t);
-	constexpr int bufsize = 256;
+	const int bufsize = 256;
 	char buf[bufsize];
 
 	// Beware! an invalid timestamp string crashes windows apps.
