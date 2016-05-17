@@ -49,8 +49,8 @@ public:
     float getX2() const;
     float getY2() const;
     
-    bool isEmpty();
-    bool isInside(float x, float y);
+    bool isEmpty() const;
+    bool isInside(float x, float y) const;
     
     void lerp(const Rect & rect, float p);
     void grow(float amount);

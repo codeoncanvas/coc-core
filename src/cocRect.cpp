@@ -276,7 +276,7 @@ float Rect::getY2() const {
 #endif
 
 //----------------------------------------------------------
-bool Rect::isEmpty() {
+bool Rect::isEmpty() const {
 
     bool bEmpty = true;
     bEmpty = (getW() == 0);
@@ -287,7 +287,7 @@ bool Rect::isEmpty() {
 //----------------------------------------------------------
 #ifdef COC_OF
 
-bool Rect::isInside(float x, float y) {
+bool Rect::isInside(float x, float y) const {
     return inside(x, y);
 }
 
@@ -295,7 +295,7 @@ bool Rect::isInside(float x, float y) {
 
 #ifdef COC_CI
 
-bool Rect::isInside(float x, float y) {
+bool Rect::isInside(float x, float y) const {
     return contains(glm::vec2(x, y));
 }
 
