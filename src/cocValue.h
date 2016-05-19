@@ -58,10 +58,11 @@ public:
     }
 
     //--------------------------------------------------------------
-    void update() {
+    T update() {
         bValueChanged = (valueClean != valueDirty);
         valueClean = valueDirty;
         bDirty = false;
+        return valueClean;
     }
 
     //--------------------------------------------------------------
