@@ -277,10 +277,7 @@ float Rect::getY2() const {
 
 //----------------------------------------------------------
 bool Rect::isEmpty() const {
-
-    bool bEmpty = true;
-    bEmpty = (getW() == 0);
-    bEmpty = (getH() == 0);
+    bool bEmpty = (getW() == 0) && (getH() == 0);
     return bEmpty;
 }
 
