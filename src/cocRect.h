@@ -26,8 +26,8 @@ class Rect : public RectBase {
 
 public:
     
-    Rect(){};
-    Rect( RectBase rect) { setRect(rect); }
+    Rect();
+    Rect(RectBase rect);
 
     void setX(float value);
     void setY(float value);
@@ -49,12 +49,11 @@ public:
     float getX2() const;
     float getY2() const;
     
-    bool isEmpty();
-    bool isInside(float x, float y);
+    bool isEmpty() const;
+    bool isInside(float x, float y) const;
     
     void lerp(const Rect & rect, float p);
-    void erode(float value);                    // TODO:
-    void dilate(float value);                   // TODO:
+    void grow(float amount);
     void transform(const glm::mat4x4 mat);      // TODO:
 
     bool operator == (const Rect & rect) const;
@@ -65,5 +64,6 @@ public:
 };
 
 Rect RectLerp(const Rect & rectFrom, const Rect & rectTo, float p);
+Rect RectGrow(const Rect & rectToGrow, float amount);
 
 }

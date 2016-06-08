@@ -28,11 +28,18 @@
 
 #include "cocConstants.h"
 #include "cocMath.h"
+#include "cocRandom.h"
 #include "cocRect.h"
+#include "cocValue.h"
 
 namespace coc {
 
 double getTimeElapsed();
 double getTimeElapsedSinceLastFrame();
+
+std::string getTimestampString();
+std::string getTimestampString(const std::string & timestampFormat);
+
+std::string stringReplace(const std::string & input, const std::string & searchStr, const std::string & replaceStr);
 
 }

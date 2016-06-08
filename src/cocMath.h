@@ -37,6 +37,8 @@ float map(float val, float inMin, float inMax, float outMin, float outMax, bool 
 float lerp(float a, float b, float amount);
 
 glm::mat4 lookAt(glm::vec3 position, glm::vec3 target, glm::vec3 up = glm::vec3(0, 1, 0));
+glm::vec2 perpendicular(glm::vec2 vec);
+glm::vec2 direction(float angle, float angleOffset=0);
 float angleClockwise(glm::vec2 direction);
 
 }

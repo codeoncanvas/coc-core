@@ -12,6 +12,18 @@
 namespace coc {
 
 //--------------------------------------------------------------
+Rect::Rect() {
+    setX(0);
+    setY(0);
+    setW(0);
+    setH(0);
+}
+
+Rect::Rect(RectBase rect) {
+    setRect(rect);
+}
+
+//--------------------------------------------------------------
 #ifdef COC_OF
 
 void Rect::setX(float value) {
@@ -264,18 +276,15 @@ float Rect::getY2() const {
 #endif
 
 //----------------------------------------------------------
-bool Rect::isEmpty() {
-
-    bool bEmpty = true;
-    bEmpty = (getW() == 0);
-    bEmpty = (getH() == 0);
+bool Rect::isEmpty() const {
+    bool bEmpty = (getW() == 0) && (getH() == 0);
     return bEmpty;
 }
 
 //----------------------------------------------------------
 #ifdef COC_OF
 
-bool Rect::isInside(float x, float y) {
+bool Rect::isInside(float x, float y) const {
     return inside(x, y);
 }
 
@@ -283,7 +292,7 @@ bool Rect::isInside(float x, float y) {
 
 #ifdef COC_CI
 
-bool Rect::isInside(float x, float y) {
+bool Rect::isInside(float x, float y) const {
     return contains(glm::vec2(x, y));
 }
 
@@ -301,6 +310,14 @@ void Rect::lerp(const Rect & rect, float p) {
     setX2(_x2);
     setY1(_y1);
     setY2(_y2);
+}
+
+void Rect::grow(float amount) {
+    
+    setX(getX() - amount);
+    setY(getY() - amount);
+    setW(getW() + amount * 2);
+    setH(getH() + amount * 2);
 }
 
 //----------------------------------------------------------
@@ -347,6 +364,10 @@ Rect RectLerp(const Rect & rectFrom, const Rect & rectTo, float p) {
     return rect;
 }
 
-
+Rect RectGrow(const Rect & rectToGrow, float amount) {
+    Rect rect = rectToGrow;
+    rect.grow(amount);
+    return rect;
+}
 
 }//namespace coc
