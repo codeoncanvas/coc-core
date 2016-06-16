@@ -1,4 +1,4 @@
-//
+					//
 //	    ┌─┐╔═╗┌┬┐┌─┐
 //      │  ║ ║ ││├┤
 //      └─┘╚═╝─┴┘└─┘
@@ -14,6 +14,8 @@
 #pragma once
 
 #if defined( COC_OF )
+
+#define M_PI PI // M_PI is not defined in OF.
 
 #include "cocGlm.h"
 #include "ofMath.h"
