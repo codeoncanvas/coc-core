@@ -1,8 +1,21 @@
-//
-//  cocCore.cpp
-//  Created by Lukasz Karluk on 22/01/2016.
-//  http://codeoncanvas.cc
-//
+/**
+ *
+ *      ┌─┐╔═╗┌┬┐┌─┐
+ *      │  ║ ║ ││├┤
+ *      └─┘╚═╝─┴┘└─┘
+ *   ┌─┐┌─┐╔╗╔┬  ┬┌─┐┌─┐
+ *   │  ├─┤║║║└┐┌┘├─┤└─┐
+ *   └─┘┴ ┴╝╚╝ └┘ ┴ ┴└─┘
+ *
+ * Copyright (c) 2016 Code on Canvas Pty Ltd, http://CodeOnCanvas.cc
+ *
+ * This software is distributed under the MIT license
+ * https://tldrlegal.com/license/mit-license
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code
+ *
+ **/
 
 #include "cocCore.h"
 
@@ -66,10 +79,10 @@ std::string getTimestampString(const std::string & timestampFormat) {
 	// Beware! an invalid timestamp string crashes windows apps.
 	// so we have to filter out %i (which is not supported by vs)
 	// earlier.
-    
+
     std::ostringstream msStr;
 	msStr << std::fixed << std::setfill('0') << std::setw(3) << ms;
-    
+
 	auto tmpTimestampFormat = timestampFormat;
     tmpTimestampFormat = stringReplace(tmpTimestampFormat, "%i", msStr.str());
 

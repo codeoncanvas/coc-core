@@ -1,8 +1,21 @@
-//
-//  Rect.h
-//  Created by Lukasz Karluk on 22/01/2016.
-//  http://codeoncanvas.cc
-//
+/**
+ *
+ *      ┌─┐╔═╗┌┬┐┌─┐
+ *      │  ║ ║ ││├┤
+ *      └─┘╚═╝─┴┘└─┘
+ *   ┌─┐┌─┐╔╗╔┬  ┬┌─┐┌─┐
+ *   │  ├─┤║║║└┐┌┘├─┤└─┐
+ *   └─┘┴ ┴╝╚╝ └┘ ┴ ┴└─┘
+ *
+ * Copyright (c) 2016 Code on Canvas Pty Ltd, http://CodeOnCanvas.cc
+ *
+ * This software is distributed under the MIT license
+ * https://tldrlegal.com/license/mit-license
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code
+ *
+ **/
 
 #pragma once
 
@@ -25,7 +38,7 @@ namespace coc {
 class Rect : public RectBase {
 
 public:
-    
+
     Rect();
     Rect(RectBase rect);
 
@@ -38,27 +51,27 @@ public:
     float getY() const;
     float getW() const;
     float getH() const;
-    
+
     void setX1(float value);
     void setY1(float value);
     void setX2(float value);
     void setY2(float value);
-    
+
     float getX1() const;
     float getY1() const;
     float getX2() const;
     float getY2() const;
-    
+
     bool isEmpty() const;
     bool isInside(float x, float y) const;
-    
+
     void lerp(const Rect & rect, float p);
     void grow(float amount);
     void transform(const glm::mat4x4 mat);      // TODO:
 
     bool operator == (const Rect & rect) const;
     bool operator != (const Rect & rect) const;
-    
+
     void setRect( RectBase );
 
 };
