@@ -1,10 +1,21 @@
-//
-//  cocRect.cpp
-//  ScrollViewSample
-//
-//  Created by Lukasz Karluk on 2/02/2016.
-//
-//
+/**
+ *
+ *      ┌─┐╔═╗┌┬┐┌─┐
+ *      │  ║ ║ ││├┤
+ *      └─┘╚═╝─┴┘└─┘
+ *   ┌─┐┌─┐╔╗╔┬  ┬┌─┐┌─┐
+ *   │  ├─┤║║║└┐┌┘├─┤└─┐
+ *   └─┘┴ ┴╝╚╝ └┘ ┴ ┴└─┘
+ *
+ * Copyright (c) 2016 Code on Canvas Pty Ltd, http://CodeOnCanvas.cc
+ *
+ * This software is distributed under the MIT license
+ * https://tldrlegal.com/license/mit-license
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code
+ *
+ **/
 
 #include "cocRect.h"
 #include "cocMath.h"
@@ -29,7 +40,7 @@ Rect::Rect(RectBase rect) {
 void Rect::setX(float value) {
     RectBase::setX(value);
 }
-    
+
 #endif
 
 #ifdef COC_CI
@@ -39,7 +50,7 @@ void Rect::setX(float value) {
     x1 = value;
     x2 = x1 + w;
 }
-    
+
 #endif
 
 //--------------------------------------------------------------
@@ -48,26 +59,26 @@ void Rect::setX(float value) {
 void Rect::setY(float value) {
     RectBase::setY(value);
 }
-    
+
 #endif
 
 #ifdef COC_CI
-    
+
 void Rect::setY(float value) {
     float h = getH();
     y1 = value;
     y2 = y1 + h;
 }
 
-#endif    
+#endif
 
 //--------------------------------------------------------------
 #ifdef COC_OF
-    
+
 void Rect::setW(float value) {
     setWidth(value);
 }
-    
+
 #endif
 
 #ifdef COC_CI
@@ -75,16 +86,16 @@ void Rect::setW(float value) {
 void Rect::setW(float value) {
     x2 = x1 + value;
 }
-    
+
 #endif
 
 //--------------------------------------------------------------
 #ifdef COC_OF
-    
+
 void Rect::setH(float value) {
     setHeight(value);
 }
-    
+
 #endif
 
 #ifdef COC_CI
@@ -92,7 +103,7 @@ void Rect::setH(float value) {
 void Rect::setH(float value) {
     y2 = y1 + value;
 }
-    
+
 #endif
 
 //--------------------------------------------------------------
@@ -101,7 +112,7 @@ void Rect::setH(float value) {
 float Rect::getX() const {
     return RectBase::getX();
 }
-    
+
 #endif
 
 #ifdef COC_CI
@@ -109,7 +120,7 @@ float Rect::getX() const {
 float Rect::getX() const {
     return x1;
 }
-    
+
 #endif
 
 //--------------------------------------------------------------
@@ -118,22 +129,22 @@ float Rect::getX() const {
 float Rect::getY() const {
     return RectBase::getY();
 }
-    
+
 #endif
 
 #ifdef COC_CI
-    
+
 float Rect::getY() const {
     return y1;
 }
-    
+
 #endif
-    
+
 //--------------------------------------------------------------
 float Rect::getW() const {
     return getWidth();
 }
-    
+
 //--------------------------------------------------------------
 float Rect::getH() const {
     return getHeight();
@@ -213,7 +224,7 @@ void Rect::setY2(float value) {
 float Rect::getX1() const {
     return x;
 }
-    
+
 #endif
 
 #ifdef COC_CI
@@ -221,16 +232,16 @@ float Rect::getX1() const {
 float Rect::getX1() const {
     return RectBase::getX1();
 }
-    
+
 #endif
-    
+
 //--------------------------------------------------------------
 #ifdef COC_OF
 
 float Rect::getY1() const {
     return y;
 }
-    
+
 #endif
 
 #ifdef COC_CI
@@ -238,16 +249,16 @@ float Rect::getY1() const {
 float Rect::getY1() const {
     return RectBase::getY1();
 }
-    
+
 #endif
-    
+
 //--------------------------------------------------------------
 #ifdef COC_OF
 
 float Rect::getX2() const {
     return x + width;
 }
-    
+
 #endif
 
 #ifdef COC_CI
@@ -255,7 +266,7 @@ float Rect::getX2() const {
 float Rect::getX2() const {
     return RectBase::getX2();
 }
-    
+
 #endif
 
 //--------------------------------------------------------------
@@ -264,7 +275,7 @@ float Rect::getX2() const {
 float Rect::getY2() const {
     return y + height;
 }
-    
+
 #endif
 
 #ifdef COC_CI
@@ -272,7 +283,7 @@ float Rect::getY2() const {
 float Rect::getY2() const {
     return RectBase::getY2();
 }
-    
+
 #endif
 
 //----------------------------------------------------------
@@ -313,7 +324,7 @@ void Rect::lerp(const Rect & rect, float p) {
 }
 
 void Rect::grow(float amount) {
-    
+
     setX(getX() - amount);
     setY(getY() - amount);
     setW(getW() + amount * 2);
@@ -334,7 +345,7 @@ bool Rect::operator != (const Rect & rect) const {
 	return ((*this == rect) == false);
 }
     //----------------------------------------------------------
-    
+
 #ifdef COC_OF
 
 void Rect::setRect( RectBase rect ) {
@@ -354,7 +365,7 @@ void Rect::setRect( RectBase rect ) {
     setX2(rect.x2);
     setY2(rect.y2);
 }
-    
+
 #endif
 
 //----------------------------------------------------------
