@@ -310,6 +310,28 @@ bool Rect::isInside(float x, float y) const {
 #endif
 
 //----------------------------------------------------------
+void Rect::fitInto(const Rect & rect, bool bFill) {
+
+    float rw = rect.getW() / getW();
+    float rh = rect.getH() / getH();
+    float scale = 1.0;
+    if(bFill) {
+        scale = coc::max(rw, rh);
+    } else {
+        scale = coc::min(rw, rh);
+    }
+
+    float w = getW() * scale;
+    float h = getH() * scale;
+    float x = rect.getX() + (rect.getW() - w) * 0.5;
+    float y = rect.getY() + (rect.getH() - h) * 0.5;
+
+    setX(x);
+    setY(y);
+    setW(w);
+    setH(h);
+}
+
 void Rect::lerp(const Rect & rect, float p) {
 
     float _x1 = coc::lerp(getX1(), rect.getX1(), p);
@@ -369,6 +391,12 @@ void Rect::setRect( RectBase rect ) {
 #endif
 
 //----------------------------------------------------------
+Rect RectFit(const Rect & rectFrom, const Rect & rectTo, bool bFill) {
+    Rect rect = rectFrom;
+    rect.fitInto(rectTo, bFill);
+    return rect;
+}
+
 Rect RectLerp(const Rect & rectFrom, const Rect & rectTo, float p) {
     Rect rect = rectFrom;
     rect.lerp(rectTo, p);

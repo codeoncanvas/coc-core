@@ -65,6 +65,7 @@ public:
     bool isEmpty() const;
     bool isInside(float x, float y) const;
 
+    void fitInto(const Rect & rect, bool bFill=true);
     void lerp(const Rect & rect, float p);
     void grow(float amount);
     void transform(const glm::mat4x4 mat);      // TODO:
@@ -76,6 +77,7 @@ public:
 
 };
 
+Rect RectFit(const Rect & rectFrom, const Rect & rectTo, bool bFill=true);
 Rect RectLerp(const Rect & rectFrom, const Rect & rectTo, float p);
 Rect RectGrow(const Rect & rectToGrow, float amount);
 
