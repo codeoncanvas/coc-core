@@ -67,7 +67,7 @@ public:
     bool isEmpty() const;
     bool isInside(float x, float y) const;
 
-    void fitInto(const Rect & rect, bool bFill=true);
+    void fitInto(const Rect & rect, bool bFill=false);
     void lerp(const Rect & rect, float p);
     void grow(float amount);
     
