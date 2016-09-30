@@ -34,6 +34,20 @@ Rect::Rect(RectBase rect) {
     setRect(rect);
 }
 
+Rect::Rect(float x1, float y1, float x2, float y2) {
+    setX1(x1);
+    setY1(y1);
+    setX2(x2);
+    setY2(y2);
+}
+
+Rect::Rect(const glm::vec2 & v1, const glm::vec2 & v2) {
+    setX1(v1.x);
+    setY1(v1.y);
+    setX2(v2.x);
+    setY2(v2.y);
+}
+
 //--------------------------------------------------------------
 #ifdef COC_OF
 
@@ -351,6 +365,18 @@ void Rect::grow(float amount) {
     setY(getY() - amount);
     setW(getW() + amount * 2);
     setH(getH() + amount * 2);
+}
+
+//----------------------------------------------------------
+glm::mat4 Rect::getTransform(const Rect & rect) {
+    float tx = rect.getX() - getX();
+    float ty = rect.getY() - getY();
+    float sx = rect.getW() / getW();
+    float sy = rect.getH() / getH();
+    
+    glm::mat4 mat = glm::translate(glm::vec3(tx, ty, 0));
+    mat = glm::scale(mat, glm::vec3(sx, sy, 1));
+    return mat;
 }
 
 //----------------------------------------------------------

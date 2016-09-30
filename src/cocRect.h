@@ -41,6 +41,8 @@ public:
 
     Rect();
     Rect(RectBase rect);
+	Rect(float x1, float y1, float x2, float y2);
+	Rect(const glm::vec2 & v1, const glm::vec2 & v2);
 
     void setX(float value);
     void setY(float value);
@@ -68,7 +70,9 @@ public:
     void fitInto(const Rect & rect, bool bFill=true);
     void lerp(const Rect & rect, float p);
     void grow(float amount);
+    
     void transform(const glm::mat4x4 mat);      // TODO:
+    glm::mat4 getTransform(const Rect & rect);
 
     bool operator == (const Rect & rect) const;
     bool operator != (const Rect & rect) const;
