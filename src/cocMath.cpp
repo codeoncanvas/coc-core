@@ -169,19 +169,19 @@ glm::vec2 perpendicular(glm::vec2 vec) {
 }
 
 glm::vec2 direction(float angle, float angleOffset) {
-    glm::vec4 point(0, -1, 0, 0);
-    point = glm::rotate(angle + angleOffset, glm::vec3(0, 0, 1)) * point;
-    return glm::vec2(point.x, point.y);
+    angle += angleOffset;
+    if(angle > (M_PI * 1.5)) {
+        angle -= (M_PI * 2.0);
+    }
+    angle -= (M_PI * 0.5);
+    return glm::vec2(cos(angle), sin(angle));
 }
 
 float angleClockwise(glm::vec2 direction) {
-
     float angle = atan2(direction.y, direction.x);
-    angle += M_PI * 0.5;
+    angle += (M_PI * 0.5);
     if(angle < 0.0) {
-        angle += M_PI * 2;
-    } else if(angle > M_PI * 2) {
-        angle -= M_PI * 2;
+        angle += (M_PI * 2);
     }
     return angle;
 }
