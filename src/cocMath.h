@@ -30,6 +30,11 @@
 
 #include "cinder/CinderMath.h"
 
+#ifdef CINDER_MSW
+//added for M_PI_2 etc.
+#define _USE_MATH_DEFINES
+#endif 
+
 #endif
 
 
